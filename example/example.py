@@ -20,8 +20,8 @@ values.
 
 ## Inline value
 
-What do you get when you multiply six by nine? {{ value }}.
-
+ - What do you get when you multiply six by nine? {{ value }}.
+ - Math: $`\delta = 1`$
 """
 
 data = dict()
