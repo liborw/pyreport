@@ -1,19 +1,19 @@
 ---
-title:  Review of reporting tools
+title:  pyreport: Reports from python simplified
 author: Libor Wagner <libor.wagner@cvut.cz>
 date:   2018-11-22
 ---
 
-# Review of reporting tools
+# pyreport: Reports from python simplified
 
-This repository is a review of various reporting tools mainly for python.
+Simple reports from python.
 
-## report1: Python -> Jinja2 -> (html, md, latex, ...) [-> Weasyprint -> PDF]
+## Installation
 
-    - [Jinja2](http://jinja.pocoo.org/docs/2.10/)
-    - [Weasyprint]()
+## Usage
 
+ - see the example [example.py](example/example.py) and the result [example.md](example/example.md)
 
-## Pweave -> (html, md, latex)
+## Similar tools
 
-
+ - [pweawe]()
