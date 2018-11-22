@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 from pyreport.report import report
 from tabulate import tabulate
 from datetime import date
+import markdown
+import weasyprint
 
 """!
 ---
@@ -59,6 +61,13 @@ This report was generated using [pyreports]().
 """
 
 md = report(**data)
-
 with open('example.md', 'w') as f:
     f.write(md)
+
+html = markdown.markdown(md)
+with open('example.html', 'w') as f:
+    f.write(html)
+
+weasyprint.HTML(string=html,base_url='./').write_pdf('example.pdf')
+
+
