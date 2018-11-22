@@ -8,17 +8,17 @@ date:   2018-11-22
 
 ~~Library~~...~~framework~~...couple line of code that can hel you to write reports.
 
-## Installation
+## Installation
 
 Requirements:
 
-    - [jinja2](http://jinja.pocoo.org)
+  - [jinja2](http://jinja.pocoo.org)
 
 Optional, needed to run the example:
 
-    - [numpy](http://www.numpy.org)
-    - [tabulate](https://pypi.org/project/tabulate/)
-    - [matplotlib](https://matplotlib.org)
+  - [numpy](http://www.numpy.org)
+  - [tabulate](https://pypi.org/project/tabulate/)
+  - [matplotlib](https://matplotlib.org)
 
 Unstall using pip:
 
@@ -26,7 +26,7 @@ Unstall using pip:
 
 ## Usage
 
- - see the example [example.py](example/example.py) and the result [example.md](example/example.md)
+  - see the example [example.py](example/example.py) and the result [example.md](example/example.md)
 
 ## Similar tools
 
