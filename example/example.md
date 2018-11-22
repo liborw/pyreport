@@ -11,7 +11,8 @@ values.
 ## Inline value
 
  - What do you get when you multiply six by nine? 42.
- - Math: $\delta = 1$
+ - Math: $$\delta = 1$$
+
 ## Table
 
 <table>
