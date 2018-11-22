@@ -8,21 +8,26 @@ date: Thursday 22. November 2018
 This is example report, showing how to include text, tables, figures and inline
 values.
 
-## Inline value
+## Features
 
- - What do you get when you multiply six by nine? 42.
+ - What do you get when you multiply six by nine? 42. (inline value)
  - Math: $`\delta = 1`$
+ - Tables
+ - Plots
+
 ## Table
 
+<div style="align: center">
 <table>
 <tbody>
-<tr><td style="text-align: right;">0.792417</td><td style="text-align: right;">0.422958</td><td style="text-align: right;">0.267564</td><td style="text-align: right;">0.789632</td><td style="text-align: right;">0.681314</td></tr>
-<tr><td style="text-align: right;">0.567274</td><td style="text-align: right;">0.191748</td><td style="text-align: right;">0.740223</td><td style="text-align: right;">0.963339</td><td style="text-align: right;">0.16746 </td></tr>
-<tr><td style="text-align: right;">0.376366</td><td style="text-align: right;">0.157056</td><td style="text-align: right;">0.869363</td><td style="text-align: right;">0.992112</td><td style="text-align: right;">0.293374</td></tr>
-<tr><td style="text-align: right;">0.231012</td><td style="text-align: right;">0.338354</td><td style="text-align: right;">0.965637</td><td style="text-align: right;">0.101879</td><td style="text-align: right;">0.433904</td></tr>
-<tr><td style="text-align: right;">0.380375</td><td style="text-align: right;">0.203005</td><td style="text-align: right;">0.54416 </td><td style="text-align: right;">0.208187</td><td style="text-align: right;">0.271171</td></tr>
+<tr><td style="text-align: right;">0.790006 </td><td style="text-align: right;">0.0403853</td><td style="text-align: right;">0.734266</td><td style="text-align: right;">0.703944</td><td style="text-align: right;">0.565262  </td></tr>
+<tr><td style="text-align: right;">0.0676335</td><td style="text-align: right;">0.668022 </td><td style="text-align: right;">0.152646</td><td style="text-align: right;">0.778809</td><td style="text-align: right;">0.00289222</td></tr>
+<tr><td style="text-align: right;">0.507995 </td><td style="text-align: right;">0.349383 </td><td style="text-align: right;">0.597964</td><td style="text-align: right;">0.567613</td><td style="text-align: right;">0.907199  </td></tr>
+<tr><td style="text-align: right;">0.945594 </td><td style="text-align: right;">0.835436 </td><td style="text-align: right;">0.781237</td><td style="text-align: right;">0.663256</td><td style="text-align: right;">0.0651431 </td></tr>
+<tr><td style="text-align: right;">0.244827 </td><td style="text-align: right;">0.867992 </td><td style="text-align: right;">0.198866</td><td style="text-align: right;">0.344306</td><td style="text-align: right;">0.398602  </td></tr>
 </tbody>
 </table>
+</div>
 
 ## Figure
 

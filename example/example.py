@@ -18,10 +18,13 @@ date: {{ date }}
 This is example report, showing how to include text, tables, figures and inline
 values.
 
-## Inline value
+## Features
 
- - What do you get when you multiply six by nine? {{ value }}.
+ - What do you get when you multiply six by nine? {{ value }}. (inline value)
  - Math: $`\delta = 1`$
+ - Tables
+ - Plots
+
 """
 
 data = dict()
@@ -31,7 +34,9 @@ data['date'] = date.today().strftime("%A %d. %B %Y")
 """!
 ## Table
 
+<div style="align: center">
 {{ table }}
+</div>
 
 """
 
