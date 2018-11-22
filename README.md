@@ -24,7 +24,7 @@ Unstall using pip:
 
 
 
-## Usage
+## Usage
 
   - see the example [example.py](example/example.py) and the result [example.md](example/example.md)
 
