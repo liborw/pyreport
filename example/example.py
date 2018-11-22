@@ -16,7 +16,7 @@ date: {{ date }}
 This is example report, showing how to include text, tables, figures and inline
 values.
 
-## Inline value
+## Inline value
 
 What do you get when you multiply six by nine? {{ value }}.
 
@@ -27,7 +27,7 @@ data['value'] = 42
 data['date'] = date.today().strftime("%A %d. %B %Y")
 
 """!
-## Table
+## Table
 
 {{ table }}
 
@@ -38,7 +38,7 @@ table = tabulate(rand, tablefmt='html')
 data['table'] = table
 
 """!
-## Figure
+## Figure
 
 ![Test image](fig.png)
 
@@ -54,7 +54,7 @@ fig.savefig('fig.png')
 
 
 """!
----
+----
 This report was generated using [pyreports]().
 """
 
