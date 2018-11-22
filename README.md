@@ -6,9 +6,23 @@ date:   2018-11-22
 
 # pyreport: Reports from python simplified
 
-Simple reports from python.
+~~Library~~...~~framework~~...couple line of code that can hel you to write reports.
 
 ## Installation
+
+Requirements:
+
+    - [jinja2](http://jinja.pocoo.org)
+
+Optional, needed to run the example:
+
+    - [numpy](http://www.numpy.org)
+    - [tabulate](https://pypi.org/project/tabulate/)
+    - [matplotlib](https://matplotlib.org)
+
+Unstall using pip:
+
+
 
 ## Usage
 
