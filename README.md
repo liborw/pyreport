@@ -6,7 +6,7 @@ date:   2018-11-22
 
 # pyreport: Reports from python simplified
 
-~~Library~~...~~framework~~...couple line of code that can hel you to write reports.
+~~Library~~...~~framework~~...a couple lines of code that can help you to write simple reports in python.
 
 ## Installation
 
@@ -22,6 +22,11 @@ Optional, needed to run the example:
 
 Unstall using pip:
 
+```shell
+$ pip install git+git@gitlab.ciirc.cvut.cz:b635-incubator/pyreport.git
+# or
+# pip install git+http://gitlab.ciirc.cvut.cz/b635-incubator/pyreport.git
+```
 
 
 ## Usage
