@@ -34,6 +34,9 @@ report['date'] = date.today().strftime("%A %d. %B %Y")
 """!
 ## Table
 
+The following table is generated using [tabulate](https://pypi.org/project/tabulate/) library.
+I'm using the html format as the github format desn't work in gitlab, and html works in both.
+
 <div style="align: center">
 {{ table }}
 </div>
@@ -46,6 +49,9 @@ report['table'] = table
 
 """!
 ## Figure
+
+The following figure is produced by [matplotlib](https://matplotlib.org), using the `Report.add_path('fig/fig.png')`
+the figure is save to apropriate location.
 
 ![Test image]({{ fig1 }})
 
@@ -61,8 +67,11 @@ fig.savefig(report.add_path('fig/fig.png', 'fig1'))
 
 
 """!
+
+Don't wat to force you, but it would be nice to mention the pyreport library, somewhere in the report.
+
 ----
-This report was generated using [pyreports]().
+This report was generated using [pyreport](https://github.com/liborw/pyreport).
 
 """
 
