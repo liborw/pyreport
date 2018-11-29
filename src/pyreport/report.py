@@ -29,7 +29,7 @@ def parse_text_fields(s, start='"""!', end='"""'):
     return '\n'.join(lines)
 
 
-def report(text=None, data={}):
+def generate(text=None, data={}):
     src = sys.argv[0]
     log.debug('Source file: ', src)
 
@@ -82,6 +82,6 @@ class Report(dict):
     def generate(self, text=None, data={}):
         """Parse text section and generate the report."""
         self.add_data(**data)
-        out = report(text=text, data=self)
+        out = generate(text=text, data=self)
         return out
 
