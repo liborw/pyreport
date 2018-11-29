@@ -21,7 +21,7 @@ values.
 ## Features
 
  - What do you get when you multiply six by nine? {{ value }}. (inline value)
- - Math: $`\delta = 1`$
+ - Math: $`\delta = 1`$ (not really related to the pyreport library)
  - Tables
  - Plots
 
