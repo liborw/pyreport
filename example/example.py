@@ -1,7 +1,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-from pyreport.report import report
+from pyreport.report import Report
 from tabulate import tabulate
 from datetime import date
 import markdown
@@ -27,9 +27,9 @@ values.
 
 """
 
-data = dict()
-data['value'] = 42
-data['date'] = date.today().strftime("%A %d. %B %Y")
+report = Report()
+report['value'] = 42
+report['date'] = date.today().strftime("%A %d. %B %Y")
 
 """!
 ## Table
@@ -42,12 +42,12 @@ data['date'] = date.today().strftime("%A %d. %B %Y")
 
 rand = np.random.rand(5, 5)
 table = tabulate(rand, tablefmt='html')
-data['table'] = table
+report['table'] = table
 
 """!
 ## Figure
 
-![Test image](fig.png)
+![Test image]({{ fig1 }})
 
 """
 
@@ -57,15 +57,16 @@ y = np.sin(x)
 fig = plt.figure()
 plt.plot(x, y)
 
-fig.savefig('fig.png')
+fig.savefig(report.add_path('fig/fig.png', 'fig1'))
 
 
 """!
 ----
 This report was generated using [pyreports]().
+
 """
 
-md = report(**data)
+md = report.generate()
 with open('example.md', 'w') as f:
     f.write(md)
 

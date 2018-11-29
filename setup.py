@@ -7,7 +7,7 @@ setup(name='pyreport',
       author_email='libor.wagner@cvut.cz',
       url='https://gitlab.ciirc.cvut.cz/b635-incubator/pyreport',
       packages=['pyreport'],
-      package_dir={'pyreport': 'src/'},
+      package_dir={'pyreport': 'src/pyreport'},
       install_requires=[
             'jinja2'
           ]

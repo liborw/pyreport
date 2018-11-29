@@ -49,15 +49,15 @@ def report(text=None, data={}):
     return out
 
 
-class Report(object):
+class Report(dict):
 
     def __init__(self, outdir='.'):
-        self.data = dict
+        super(Report, self).__init__()
         self.outdir = outdir
 
     def add_data(self, **kvargs):
         """Add data as key value pairs."""
-        self.data.update(kvargs)
+        self.update(kvargs)
 
     def add_path(self, filename, key=None):
         """
@@ -66,22 +66,22 @@ class Report(object):
         """
 
         # create missing subdirectory
-        subdir = self.path.dirname(filename)
-        path = os.path.join([self.output, subdir])
+        subdir = os.path.dirname(filename)
+        path = os.path.join(self.outdir, subdir)
         if not os.path.isdir(path):
             os.makedirs(path)
 
-        path = os.path.join([self.outdir, filename])
+        path = os.path.join(self.outdir, filename)
         log.debug('save path: %s for key %s', path, key)
 
         if key is not None:
-            self.data[key] = filename
+            self[key] = filename
 
         return path
 
     def generate(self, text=None, data={}):
         """Parse text section and generate the report."""
         self.add_data(**data)
-        out = report(text=text, data=self.data)
+        out = report(text=text, data=self)
         return out
 
