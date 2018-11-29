@@ -76,13 +76,13 @@ This report was generated using [pyreport](https://github.com/liborw/pyreport).
 """
 
 md = report.generate()
-with open('example.md', 'w') as f:
+with open('simple.md', 'w') as f:
     f.write(md)
 
 html = markdown.markdown(md)
-with open('example.html', 'w') as f:
+with open('simple.html', 'w') as f:
     f.write(html)
 
-weasyprint.HTML(string=html,base_url='./').write_pdf('example.pdf')
+weasyprint.HTML(string=html,base_url='./').write_pdf('simple.pdf')
 
 

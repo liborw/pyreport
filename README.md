@@ -31,7 +31,7 @@ $ pip install git+git@gitlab.ciirc.cvut.cz:b635-incubator/pyreport.git
 
 ## Usage
 
-  - see the example [example.py](example/example.py) and the result [example.md](example/example.md)
+  - see the [simple.py](example/simple/simple.py) example and the result [simple.md](example/simple/simple.md) for basic usage.
 
 ## Similar tools
 
