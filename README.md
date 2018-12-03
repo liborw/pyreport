@@ -21,7 +21,9 @@ Optional, needed to run the example:
 Unstall using pip:
 
 ```shell
-$ pip install https://github.com/liborw/repgen.git
+$ pip install https://github.com/liborw/repgen.git # for latest version
+# or
+$ pip install repgen
 ```
 
 ## Usage
