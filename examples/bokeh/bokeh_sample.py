@@ -4,7 +4,7 @@ from bokeh.plotting import figure
 from bokeh.models import Range1d
 from bokeh.embed import components
 
-from pyreport import Report
+from repgen import Report
 
 """!
 

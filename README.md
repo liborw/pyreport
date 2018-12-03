@@ -1,12 +1,10 @@
 ---
-title:  pyreport: Reports from python simplified
+title:  repgen: A Simple Python Report Generation Library
 author: Libor Wagner <libor.wagner@cvut.cz>
 date:   2018-11-22
 ---
 
-# pyreport: Reports from python simplified
-
-~~Library~~...~~framework~~...a couple lines of code that can help you to write simple reports in python.
+# repgen: A Simple Python Report Generation Library
 
 ## Installation
 
@@ -23,15 +21,33 @@ Optional, needed to run the example:
 Unstall using pip:
 
 ```shell
-$ pip install git+git@gitlab.ciirc.cvut.cz:b635-incubator/pyreport.git
-# or
-# pip install git+http://gitlab.ciirc.cvut.cz/b635-incubator/pyreport.git
+$ pip install https://github.com/liborw/repgen.git
 ```
-
 
 ## Usage
 
-  - see the [simple.py](example/simple/simple.py) example and the result [simple.md](example/simple/simple.md) for basic usage.
+ - The following example will produce the ultimate answer in about 7.5 milion years, but also shows the simples usage of this library.
+
+```python
+
+import time
+from repgen import generate
+
+"""!
+What is the answer to life the universe and everything? {{ the_answer }}
+"""
+
+time.sleep(7.5e+6*3.154e+7)
+
+data = dict()
+data['the_answer'] = 7*6
+
+print(generate(data=data))
+
+
+```
+
+  - For more examples see the [examples](examples/) directory.
 
 ## Similar tools
 

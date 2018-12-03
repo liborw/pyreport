@@ -1,7 +1,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-from pyreport import Report
+from repgen import Report
 from tabulate import tabulate
 from datetime import date
 import markdown

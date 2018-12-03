@@ -1,14 +1,23 @@
 from setuptools import setup
 
-setup(name='pyreport',
-      version='0.1',
-      description='Simple reports from python',
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
+setup(name='repgen',
+      version='0.0.2',
+      description='A simple python REPort GENeration library',
       author='Libor Wagner',
       author_email='libor.wagner@cvut.cz',
-      url='https://gitlab.ciirc.cvut.cz/b635-incubator/pyreport',
-      packages=['pyreport'],
-      package_dir={'pyreport': 'src/pyreport'},
+      url='https://github.com/liborw/repgen',
+      long_description=long_description,
+      long_description_content_type="text/markdown",
+      packages=['repgen'],
       install_requires=[
-            'jinja2'
-          ]
-      )
+          'jinja2'
+      ],
+      classifiers=[
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 2",
+          "License :: OSI Approved :: MIT License",
+      ]
+)
