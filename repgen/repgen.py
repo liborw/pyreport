@@ -13,20 +13,28 @@ import os
 log = logging.getLogger('report')
 
 
-def parse_text_fields(s, start='"""!', end='"""'):
+def parse_text_fields(s, start=['"""!', 'r"""!'], end=['"""']):
 
     lines = []
     isin = False
     for i, line in enumerate(s.split('\n')):
-        if line.startswith(start):
+        if startswithany(line, start):
             isin = True
             log.debug('Text block start at %d', i+1)
-        elif line.startswith(end):
+        elif startswithany(line, end):
             isin = False
             log.debug('Text block end at %d', i+1)
         elif isin:
             lines.append(line)
     return '\n'.join(lines)
+
+
+def startswithany(s, tpl):
+    for t in tpl:
+        if s.startswith(t):
+            return True
+    else:
+        return False
 
 
 def generate(text=None, data={}):
