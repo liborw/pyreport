@@ -37,7 +37,7 @@ def startswithany(s, tpl):
         return False
 
 
-def generate(text=None, data={}):
+def generate(text=None, data={}, latex=False):
     src = sys.argv[0]
     log.debug('Source file: ', src)
 
@@ -50,7 +50,22 @@ def generate(text=None, data={}):
         text = parse_text_fields(content)
 
     # prepare template
-    tpl = jinja2.Template(text)
+    if latex:
+        env = jinja2.Environment(
+                block_start_string = '\BLOCK{',
+                block_end_string = '}',
+                variable_start_string = '\VAR{',
+                variable_end_string = '}',
+                comment_start_string = '\#{',
+                comment_end_string = '}',
+                line_statement_prefix = '%%',
+                line_comment_prefix = '%#',
+                trim_blocks = True,
+                autoescape = False)
+    else:
+        env = jinja2.Environment()
+
+    tpl = env.from_string(text)
 
     # render template
     out = tpl.render(**data)
