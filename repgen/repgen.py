@@ -12,6 +12,33 @@ import os
 
 log = logging.getLogger('report')
 
+confs = dict()
+confs['default'] = {"text_block_start":     ['r"""!'],
+                    "text_block_end":       ['"""'],
+                    "jinja_block_start":    '{%',
+                    "jinja_block_end":      '%}',
+                    "jinja_varialbe_start": '{{',
+                    "jinja_varialbe_end":   '}}',
+                    "jinja_comment_start":  '{#',
+                    "jinja_comment_end":    '#}',
+                    "jinja_line_statement": None,
+                    "jinja_line_comment":   None,
+                    "jinja_trim_blocks":    True,
+                    "jinja_autoescape":     False}
+
+confs['latex'] = {"text_block_start":     ['"""!', 'r"""!'],
+                  "text_block_end":       ['"""'],
+                  "jinja_block_start":    '\BLOCK{',
+                  "jinja_block_end":      '}',
+                  "jinja_varialbe_start": '\VAR{',
+                  "jinja_varialbe_end":   '}',
+                  "jinja_comment_start":  '\#{',
+                  "jinja_comment_end":    '}',
+                  "jinja_line_statement": '%%',
+                  "jinja_line_comment":   '%#',
+                  "jinja_trim_blocks":    True,
+                  "jinja_autoescape":     False}
+
 
 def parse_text_fields(s, start=['"""!', 'r"""!'], end=['"""']):
 
@@ -37,9 +64,20 @@ def startswithany(s, tpl):
         return False
 
 
-def generate(text=None, data={}, latex=False):
+def get_config(name):
+    if isinstance(name, (str,)):
+        conf = confs[name]
+    else:
+        conf = name
+    return conf
+
+
+def generate(text=None, data={}, conf='default'):
     src = sys.argv[0]
     log.debug('Source file: ', src)
+
+    # get config
+    conf = get_config(conf)
 
     # read the whole file
     if text is None:
@@ -47,23 +85,19 @@ def generate(text=None, data={}, latex=False):
             content = f.read()
 
         # filter text blocks
-        text = parse_text_fields(content)
+        text = parse_text_fields(content, start=conf['text_block_start'], end=conf['text_block_end'])
 
     # prepare template
-    if latex:
-        env = jinja2.Environment(
-                block_start_string = '\BLOCK{',
-                block_end_string = '}',
-                variable_start_string = '\VAR{',
-                variable_end_string = '}',
-                comment_start_string = '\#{',
-                comment_end_string = '}',
-                line_statement_prefix = '%%',
-                line_comment_prefix = '%#',
-                trim_blocks = True,
-                autoescape = False)
-    else:
-        env = jinja2.Environment()
+    env = jinja2.Environment(block_start_string = conf['jinja_block_start'],
+                             block_end_string = conf['jinja_block_end'],
+                             variable_start_string = conf['jinja_varialbe_start'],
+                             variable_end_string = conf['jinja_varialbe_end'],
+                             comment_start_string = conf['jinja_comment_start'],
+                             comment_end_string = conf['jinja_comment_end'],
+                             line_statement_prefix = conf.get('jinja_line_statement', None),
+                             line_comment_prefix = conf.get('jinja_line_comment', None),
+                             trim_blocks = conf.get('jinja_trim_blocks', True),
+                             autoescape = conf.get('jinja_autoescape', False))
 
     tpl = env.from_string(text)
 
@@ -74,9 +108,10 @@ def generate(text=None, data={}, latex=False):
 
 class Report(dict):
 
-    def __init__(self, outdir='.'):
+    def __init__(self, outdir='.', conf='default'):
         super(Report, self).__init__()
         self.outdir = outdir
+        self.conf = get_config(conf)
 
     def add_data(self, **kvargs):
         """Add data as key value pairs."""
@@ -102,9 +137,9 @@ class Report(dict):
 
         return path
 
-    def generate(self, text=None, data={}, latex=False):
+    def generate(self, text=None, data={}):
         """Parse text section and generate the report."""
         self.add_data(**data)
-        out = generate(text=text, data=self, latex=latex)
+        out = generate(text=text, data=self, conf=self.conf)
         return out
 
