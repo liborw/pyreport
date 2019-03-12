@@ -102,9 +102,9 @@ class Report(dict):
 
         return path
 
-    def generate(self, text=None, data={}):
+    def generate(self, text=None, data={}, latex=False):
         """Parse text section and generate the report."""
         self.add_data(**data)
-        out = generate(text=text, data=self)
+        out = generate(text=text, data=self, latex=latex)
         return out
 
